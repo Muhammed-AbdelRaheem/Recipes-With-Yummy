@@ -1,0 +1,10 @@
+<section class="my-5">
+    <div class="row gy-3">
+        <div  *ngFor="let area of areas" class="col-lg-3 col-md-4">
+            <div [routerLink]="['/areameals',area.strArea]" class="rounded-2 text-center cursor-pointer">
+                    <i class="fa-solid fa-house-laptop fa-4x"></i>
+                    <h3>{{area.strArea}}</h3>
+            </div>
+    </div>
+    </div>
+</section>

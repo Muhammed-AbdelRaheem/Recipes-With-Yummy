@@ -1,0 +1,45 @@
+<section class="shadow text-bg-light rounded-3 " *ngFor="let item of mealDetails  ">
+    <div class="row my-3 p-4">
+        <div class="col-md-4">
+            <img class="w-100 rounded-3" [src]='item.strMealThumb' alt="">
+            <h2 class="h3 text-center">{{item.strMeal}}</h2>
+        </div>
+        <div class="col-md-8 position-relative">
+            <h2>Instructions</h2>
+            <p>{{desc||(item.strInstructions |cuttext:70)}}<span (click)="desc=item.strInstructions "class='small fw-bold'role="button"> ..see more</span> </p>
+            <h4><span class="fw-bold">Area :{{item.strArea}} </span></h4>
+            <h4><span class="fw-bold">Category :{{item.strCategory}} </span></h4>
+            <h4 class="fw-bold">Ingredients :
+            </h4>
+            <ul class="list-unstyled d-flex flex-row g-3 flex-wrap">
+                <li *ngFor="let Ingredient of Ingredients" class="alert alert-info m-2 p-1">
+                    {{Ingredient}}
+                </li>
+            </ul>
+
+            <h3 *ngIf="item.strTags;else msg">Tags :
+                <span class="small alert alert-danger p-1 list-unstyled w-25">
+                    {{item.strTags}}
+                </span>
+
+            </h3>
+
+
+
+            <ul class="tag list-unstyled d-flex g-3 flex-wrap">
+                <ng-template #msg>
+                    <h4>Tags :
+                        <span class="alert alert-danger  p-0 small list-unstyled w-25">Empty</span>
+                    </h4>
+                </ng-template>
+            </ul>
+
+            <div class="w-50 d-flex justify-content-around mx-auto">
+                <a target="_blank" [href]="item.strSource" class="btn btn-success px-4">Source</a>
+                <a target="_blank" [href]="item.strYoutube" class="btn btn-danger px-4">Youtube</a>
+            </div>
+            <button routerLink="/home" class="btn-close btn-close bg-info top-0 end-0 position-absolute" ></button>
+
+        </div>
+    </div>
+</section>

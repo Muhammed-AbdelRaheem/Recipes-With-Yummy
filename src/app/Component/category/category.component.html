@@ -1,0 +1,17 @@
+<section class="my-5">
+
+    <div class="row mx-auto">
+        <div   [routerLink]="['/categorymeals',category.strCategory]" *ngFor="let category of categories" class="col-lg-3 col-md-4 py-3 meal ">
+            <div class="img position-relative overflow-hidden z-1  rounded-3 text-center">
+                <img [src]="category.strCategoryThumb" alt="meal-image" class="img-fluid ">
+                <div
+                    class="meal-layer position-absolute d-flex justify-content-center align-items-center flex-column overflow-hidden text-black p-2">
+                    <h3>{{category.strCategory}}</h3>
+                <p class="text-center">{{category.strCategoryDescription|cuttext:15}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
